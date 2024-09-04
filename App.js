@@ -1,20 +1,57 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Home from "./src/pages/Home";
+import DetalhesPersonagens from "./src/pages/DetalhesPersonagens";
+import InformacoesFilmes from "./src/pages/InformacoesFilmes";
+import InformacoesNaves from "./src/pages/InformacoesNaves";
+import { Button } from "react-native";
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+export default function App() { 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleAlign: "center",
+        }}
+      >
+      <Stack.Screen
+          component={Home}
+          name="Home" 
+          options={{
+            headerShown: true,
+            title: "Personagens",
+            headerRight: () => (
+              <Button
+              title="Sobre"
+              onPress={() => sobreTrabalho()} />
+            )
+          }}
+        />
+        <Stack.Screen
+          component={DetalhesPersonagens}
+          name="DetalhesPersonagens"
+          options={{
+            title: "Informações Personagem",
+          }}
+        />
+        <Stack.Screen
+          component={InformacoesNaves}
+          name="InformacoesNaves"
+          options={{
+            title: "Informações Naves",
+          }}
+        />
+        <Stack.Screen
+          component={InformacoesFilmes}
+          name="InformacoesFilmes"
+          options={{
+            title: "Informações Filmes",
+          }}
+          />
+     
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
