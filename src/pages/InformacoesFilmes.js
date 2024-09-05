@@ -2,21 +2,16 @@ import { View, Text, FlatList, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-export default function   
- InformacoesFilmes({ route }) {
+export default function InformacoesFilmes({ route }) {
   const { films } = route.params;
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     async function fetchMovies() {
-      try {
-        const movieRequests = films.map(url => axios.get(url));
-        const responses = await Promise.all(movieRequests);
-        const moviesData = responses.map(response => response.data);
-        setMovies(moviesData);
-      } catch (error) {
-        console.error(error);
-      }
+      const movieRequests = films.map(url => axios.get(url));
+      const responses = await Promise.all(movieRequests);
+      const moviesData = responses.map(response => response.data);
+      setMovies(moviesData);
     }
 
     if (films.length > 0) {
@@ -50,16 +45,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
     justifyContent: 'center',
-    alignItems: 'center',   
-
+    alignItems: 'center',
     paddingHorizontal: 20,
-  },
-  header:   
- {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#363636',
   },
   itemContainer: {
     backgroundColor: '#ffffff',
@@ -69,8 +56,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    padding: 20,   
-
+    padding: 20,
     marginBottom: 15,
   },
   itemName: {
@@ -78,9 +64,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 5,
     color: '#363636',
-  },
-  itemDetail: {
-    fontSize: 16,
-    color: '#727272',
   },
 });

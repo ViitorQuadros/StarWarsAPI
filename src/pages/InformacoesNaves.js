@@ -2,21 +2,16 @@ import { View, Text, FlatList, StyleSheet } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
-
-export default function InformacoesNaves({ route }){
+export default function InformacoesNaves({ route }) {
   const { starships } = route.params;
   const [ships, setShips] = useState([]);
 
   useEffect(() => {
     async function fetchShips() {
-      try {
-        const shipRequests = starships.map(url => axios.get(url));
-        const responses = await Promise.all(shipRequests);
-        const shipsData = responses.map(response => response.data);
-        setShips(shipsData);
-      } catch (error) {
-        console.error(error);
-      }
+      const shipRequests = starships.map(url => axios.get(url));
+      const responses = await Promise.all(shipRequests);
+      const shipsData = responses.map(response => response.data);
+      setShips(shipsData);
     }
 
     if (starships.length > 0) {
@@ -24,8 +19,8 @@ export default function InformacoesNaves({ route }){
     }
   }, [starships]);
 
-    return (
-      <View style={styles.container}>
+  return (
+    <View style={styles.container}>
       {ships.length > 0 ? (
         <FlatList
           data={ships}
@@ -44,9 +39,9 @@ export default function InformacoesNaves({ route }){
         <Text>Carregando naves...</Text>
       )}
     </View>
-
-        );
+  );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -54,13 +49,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 20,
-  },
-  header:   
- {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#363636',
   },
   itemContainer: {
     backgroundColor: '#ffffff',
@@ -70,8 +58,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
-    padding: 20,   
-
+    padding: 20,
     marginBottom: 15,
   },
   itemName: {
@@ -79,9 +66,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 5,
     color: '#363636',
-  },
-  itemDetail: {
-    fontSize: 16,
-    color: '#727272',
   },
 });
