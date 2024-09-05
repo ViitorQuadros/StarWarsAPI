@@ -47,7 +47,7 @@ export default function App() {
           component={InformacoesFilmes}
           name="InformacoesFilmes"
           options={{
-            title: "Informações Filmes",
+            title: "Filmes Participados",
           }}
           />
      

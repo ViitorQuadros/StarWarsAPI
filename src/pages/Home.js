@@ -8,7 +8,7 @@ export default function Home({ navigation }) {
 
   return (
     <View style={styles.container}>
-      {["Luke Skywalker", "Darth Vader", "C-3PO", "R2-D2", "Obi-Wan Kenobi"].map((name) => (
+      {["Luke Skywalker", "Darth Vader", "Leia Organa", "R2-D2", "Obi-Wan Kenobi"].map((name) => (
         <TouchableOpacity 
           key={name} 
           style={styles.button} 
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
+    width: "50%",
     height: 60,
     borderWidth: 1,
     borderRadius: 5,

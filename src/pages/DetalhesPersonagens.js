@@ -34,20 +34,23 @@ export default function DetalhesPersonagens({ route, navigation }) {
     }
   };
   
-  const irParaFilmes = () => navigation.navigate("InformacoesFilmes");
+  const irParaFilmes = () => {
+    if (selectedCharacter) {
+      navigation.navigate("InformacoesFilmes", { films: selectedCharacter.films });
+    }
+  };
+  
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Detalhes do Personagem</Text>
       {selectedCharacter ? (
         <View style={styles.detailsContainer}>
           <Text style={styles.detailsHeader}>{selectedCharacter.name}</Text>
           <Text>Altura: {selectedCharacter.height}</Text>
-          <Text>Massa: {selectedCharacter.mass}</Text>
+          <Text>Peso: {selectedCharacter.mass}</Text>
           <Text>Cor do cabelo: {selectedCharacter.hair_color}</Text>
           <Text>Cor da pele: {selectedCharacter.skin_color}</Text>
           <Text>Cor dos olhos: {selectedCharacter.eye_color}</Text>
-          <Text>Ano de nascimento: {selectedCharacter.birth_year}</Text>
           <Text>Gênero: {selectedCharacter.gender}</Text>
         </View>
       ) : (
@@ -96,7 +99,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent: "center",
     alignItems: "center",
-    width: "100%",
+    width: "50%",
     height: 60,
     borderWidth: 1,
     borderRadius: 5,

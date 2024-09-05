@@ -26,7 +26,6 @@ export default function InformacoesNaves({ route }){
 
     return (
       <View style={styles.container}>
-      <Text style={styles.header}>Naves do Personagem</Text>
       {ships.length > 0 ? (
         <FlatList
           data={ships}
