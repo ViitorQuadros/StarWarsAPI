@@ -28,7 +28,12 @@ export default function DetalhesPersonagens({ route, navigation }) {
     }
   }, [tableData, characterName]);
 
-  const irParaNaves = () => navigation.navigate("InformacoesNaves");
+  const irParaNaves = () => {
+    if (selectedCharacter) {
+      navigation.navigate("InformacoesNaves", { starships: selectedCharacter.starships });
+    }
+  };
+  
   const irParaFilmes = () => navigation.navigate("InformacoesFilmes");
 
   return (
