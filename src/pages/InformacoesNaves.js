@@ -51,22 +51,38 @@ export default function InformacoesNaves({ route }){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    backgroundColor: '#f5f5f5',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
-  button: {
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    height: 60,
-    borderWidth: 1,
-    borderRadius: 5,
-    backgroundColor: "#f58733",
-    marginBottom: 10,
+  header:   
+ {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#363636',
   },
-  buttonText: {
-    fontSize: 22,
-    fontWeight: "600",
+  itemContainer: {
+    backgroundColor: '#ffffff',
+    borderRadius: 10,
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+    padding: 20,   
+
+    marginBottom: 15,
+  },
+  itemName: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#363636',
+  },
+  itemDetail: {
+    fontSize: 16,
+    color: '#727272',
   },
 });
