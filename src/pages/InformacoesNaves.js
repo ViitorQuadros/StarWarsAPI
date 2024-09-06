@@ -36,7 +36,7 @@ export default function InformacoesNaves({ route }) {
           )}
         />
       ) : (
-        <Text>Carregando naves...</Text>
+        <Text>Esse personagem não tem naves...</Text>
       )}
     </View>
   );

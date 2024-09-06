@@ -9,6 +9,11 @@ import { Button } from "react-native";
 const Stack = createNativeStackNavigator();
 
 export default function App() { 
+  
+function sobreTrabalho(){
+  alert("Vitor Quadros - RA:1134821 -  Email: 1134821@atitus.edu.br"  +  "  Gabriel Onofre - RA:1135384 - Email: 1135384@atitus.edu.br")
+}
+  
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -21,7 +26,7 @@ export default function App() {
           name="Home" 
           options={{
             headerShown: true,
-            title: "Personagens",
+            title: "Selecione o Personagem",
             headerRight: () => (
               <Button
               title="Sobre"
