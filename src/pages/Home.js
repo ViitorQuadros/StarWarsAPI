@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     width: "50%",
     height: 60,
     
-    backgroundColor: "transparent",
+    
     marginBottom: 10,
   },
   buttonText: {
     fontSize: 22,
     fontWeight: "600",
-    color: "#989898",
+    color: "white",
   },
 });

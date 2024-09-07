@@ -27,9 +27,16 @@ function sobreTrabalho(){
           options={{
             headerShown: true,
             title: "Selecione o Personagem",
+            headerStyle:{
+              backgroundColor: "black",
+            },
+            headerTintColor: "white",
             headerRight: () => (
               <Button
+              
               title="Sobre"
+              color= "red"
+              
               onPress={() => sobreTrabalho()} />
             )
           }}
@@ -39,6 +46,10 @@ function sobreTrabalho(){
           name="DetalhesPersonagens"
           options={{
             title: "Informações Personagem",
+            headerStyle:{
+              backgroundColor: "black",
+            },
+            headerTintColor: "white",
           }}
         />
         <Stack.Screen
@@ -46,6 +57,10 @@ function sobreTrabalho(){
           name="InformacoesNaves"
           options={{
             title: "Informações Naves",
+            headerStyle:{
+              backgroundColor: "black",
+            },
+            headerTintColor: "white",
           }}
         />
         <Stack.Screen
@@ -53,6 +68,10 @@ function sobreTrabalho(){
           name="InformacoesFilmes"
           options={{
             title: "Filmes Participados",
+            headerStyle:{
+              backgroundColor: "black",
+            },
+            headerTintColor: "white",
           }}
           />
      

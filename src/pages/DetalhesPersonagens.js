@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, FlatList } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, FlatList, ImageBackground } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from 'axios';
 
@@ -42,27 +42,34 @@ export default function DetalhesPersonagens({ route, navigation }) {
   
 
   return (
+    <ImageBackground
+      source={{ uri: 'https://i.pinimg.com/originals/44/ac/f0/44acf0c89a96f3cd5e3aaaa6c7c61dfc.jpg' }}
+      style={styles.background}
+    >
+    
+    
     <View style={styles.container}>
       {selectedCharacter ? (
         <View style={styles.detailsContainer}>
           <Text style={styles.detailsHeader}>{selectedCharacter.name}</Text>
-          <Text>Altura: {selectedCharacter.height}</Text>
-          <Text>Peso: {selectedCharacter.mass}</Text>
-          <Text>Cor do cabelo: {selectedCharacter.hair_color}</Text>
-          <Text>Cor da pele: {selectedCharacter.skin_color}</Text>
-          <Text>Cor dos olhos: {selectedCharacter.eye_color}</Text>
-          <Text>Gênero: {selectedCharacter.gender}</Text>
+          <Text style={styles.DetalhesTextoRetorno}> Altura: {selectedCharacter.height}</Text>
+          <Text style={styles.DetalhesTextoRetorno}> Peso: {selectedCharacter.mass}</Text>
+          <Text style={styles.DetalhesTextoRetorno}> Cor do cabelo: {selectedCharacter.hair_color}</Text>
+          <Text style={styles.DetalhesTextoRetorno}> Cor da pele: {selectedCharacter.skin_color}</Text>
+          <Text style={styles.DetalhesTextoRetorno}> Cor dos olhos: {selectedCharacter.eye_color}</Text>
+          <Text style={styles.DetalhesTextoRetorno}> Gênero: {selectedCharacter.gender}</Text>
         </View>
       ) : (
         <Text>Carregando...</Text>
       )}
       <TouchableOpacity style={styles.button} onPress={irParaNaves}>
-        <Text style={styles.buttonText}>Nave</Text>
+        <Text style={styles.buttonText}>Naves utilizadas </Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={irParaFilmes}>
-        <Text style={styles.buttonText}>Filmes</Text>
+        <Text style={styles.buttonText}>Filmes relacionados</Text>
       </TouchableOpacity>
     </View>
+    </ImageBackground>
   );
 }
 
@@ -77,12 +84,19 @@ async function swapiGet(param) {
 }
 
 const styles = StyleSheet.create({
+  background: {
+    flex: 1,
+    height: "100%",
+  },
+  DetalhesRetornoAPI:{
+    color: "white",
+  },
   container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
-  },
+    
   header: {
     fontSize: 24,
     fontWeight: "bold",
@@ -91,23 +105,34 @@ const styles = StyleSheet.create({
   detailsContainer: {
     alignItems: "center",
     marginBottom: 20,
+    color: "white",
+  },
+  
   },
   detailsHeader: {
     fontSize: 22,
     fontWeight: "bold",
+    color: "white",
   },
+  DetalhesTextoRetorno: {
+    fontSize: 16,
+    color: "white",
+
+  },
+
+
   button: {
     justifyContent: "center",
     alignItems: "center",
     width: "50%",
     height: 60,
-    borderWidth: 1,
-    borderRadius: 5,
-    backgroundColor: "#f58733",
     marginBottom: 10,
+    
   },
   buttonText: {
     fontSize: 22,
     fontWeight: "600",
+    color: "white",
+    textAlign: "center",
   },
 });
